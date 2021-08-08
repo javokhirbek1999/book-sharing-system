@@ -13,11 +13,11 @@ class UserAdminConfig(UserAdmin):
     search_fields = ('email','username','name')
     list_filter = ('email','username','name','is_active','is_staff')
     ordering = ('-joined_at',)
-    list_display = ('email','id','username','name','is_active','is_staff')
+    list_display = ('email','id','username','name','is_active','is_staff','is_verified')
     fieldsets = (
         (None, {'fields': ('email','username')}),
         (_('Personal Info'), {'fields':('name',)}),
-        (_('Permissions'), {'fields':('is_active','is_staff','is_superuser')}),
+        (_('Permissions'), {'fields':('is_active','is_staff','is_superuser','is_verified')}),
     )
     formfield_overrides = {
         models.TextField: {'widget':Textarea(attrs={'rows':20,'cols':60})},
