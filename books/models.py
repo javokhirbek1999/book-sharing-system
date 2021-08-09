@@ -18,6 +18,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
     owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=200, default="")
     available_now = models.BooleanField(default=False)
     city = models.CharField(max_length=200, null=True)
     country = models.CharField(max_length=200, null=True)
@@ -33,10 +34,23 @@ class Book(models.Model):
 
 class RequestedBook(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    requested = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    requested_user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     contact_number = models.CharField(max_length=200, null=True)
     contact_email = models.CharField(max_length=200, null=False)
 
     def __str__(self):
         return self.book.title
+    
+    @property
+    def requested_user_name(self):
+        return self.requested_user.name
 
+    @property
+    def book_owner(self):
+        return self.book.owner.name
+
+    @property
+    def book_title(self):
+        return self.book.title
+    
+    
