@@ -41,6 +41,8 @@ class RegisterView(generics.GenericAPIView):
 
         Util.send_mail(data)
 
+        print(f"User_data: {user_data}")
+
         return Response(user_data, status=status.HTTP_201_CREATED)
 
 
@@ -54,9 +56,11 @@ class VerifyEmail(views.APIView):
     def get(self, request):
 
         token = request.GET.get('token')
+        print(f"Token: {token}")
 
         try:
             payload = jwt.decode(token, settings.SECRET_KEY, algorithms='HS256')
+            print(f"Payload: {payload}")
             user = User.objects.get(id=payload['user_id'])
             if not user.is_verified:
                 user.is_verified = True

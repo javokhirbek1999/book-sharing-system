@@ -43,9 +43,10 @@ INSTALLED_APPS = [
     
     # apps
     'users',
-    'rest_framework',
+    'books',
 
     # third-pary
+    'rest_framework',
     'rest_framework_simplejwt',
     'drf_yasg',
 ]
@@ -163,4 +164,6 @@ EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-# 00:58
+
+MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

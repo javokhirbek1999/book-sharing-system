@@ -32,14 +32,22 @@ class UserManager(BaseUserManager):
         return user
 
 
+def upload_to(instance, filename):
+    return 'avatars/{filename}'.format(filename=filename)
+
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=200, unique=True, blank=False)
     username = models.CharField(max_length=200, unique=True, blank=False)
     name = models.CharField(max_length=200, blank=False)
+    avatar = models.ImageField(_('Profile Image'),upload_to=upload_to, default='avatarts/default.jpg')
+    city = models.CharField(max_length=200, null=True)
+    country = models.CharField(max_length=200, null=True)
     joined_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     is_verified = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=True)
+    
 
     objects = UserManager()
 

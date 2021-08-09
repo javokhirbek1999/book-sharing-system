@@ -16,7 +16,7 @@ class UserAdminConfig(UserAdmin):
     list_display = ('email','id','username','name','is_active','is_staff','is_verified')
     fieldsets = (
         (None, {'fields': ('email','username')}),
-        (_('Personal Info'), {'fields':('name',)}),
+        (_('Personal Info'), {'fields':('name', 'avatar', 'city', 'country')}),
         (_('Permissions'), {'fields':('is_active','is_staff','is_superuser','is_verified')}),
     )
     formfield_overrides = {

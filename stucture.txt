@@ -1,0 +1,8 @@
+Models:
+    Book:
+        - title
+        - author
+        - owner
+        - location
+        - availability
+    
