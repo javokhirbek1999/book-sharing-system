@@ -1,4 +1,6 @@
 from django.shortcuts import render
+# from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
 
 from rest_framework import viewsets
 from rest_framework import generics
@@ -17,6 +19,9 @@ class BookAPIView(viewsets.ModelViewSet):
     permission_classes = (IsOwnerOrReadOnly,)
     serializer_class = BookSerializer
     queryset = Book.available_books.all()
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ['^slug']
+
 
     def get_object(self, queryset=None, **kwargs):
         slug = self.kwargs.get('pk')
@@ -27,6 +32,7 @@ class RequestedBookAPIView(viewsets.ModelViewSet):
     permission_classes = (IsOwnerOrReadOnly,)
     serializer_class = RequestedBookSerializer
     queryset = RequestedBook.objects.all()
+    filter_backends = [filters.SearchFilter]
 
 
     def get_object(self, queryset=None, **kwargs):
@@ -36,6 +42,7 @@ class RequestedBookAPIView(viewsets.ModelViewSet):
 class MatchingBookAPIView(viewsets.ModelViewSet):
     permission_classes = (IsOwnerOrReadOnly,)
     serializer_class = RequestedBookSerializer
+    filter_backends = [filters.SearchFilter]
     
     def get_queryset(self):
         return RequestedBook.objects.filter(requested_user=self.request.user)
