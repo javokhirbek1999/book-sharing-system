@@ -41,7 +41,7 @@
   <p align="center">
     Share books with others :)
     <br />
-    <a href="https://github.com/javokhirbek1999/book-sharing-system"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/javokhirbek1999/book-sharing-system/blob/main/README.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/javokhirbek1999/book-sharing-system">View Demo</a>
