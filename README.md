@@ -41,14 +41,14 @@
   <p align="center">
     Share books with others :)
     <br />
-    <a href="https://github.com/javokhirbek1999/Covid19-Tracker"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/javokhirbek1999/book-sharing-system"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/javokhirbek1999/Covid19-Tracker">View Demo</a>
+    <a href="https://github.com/javokhirbek1999/book-sharing-system">View Demo</a>
     ·
-    <a href="https://github.com/javokhirbek1999/Covid19-Tracker/issues">Report Bug</a>
+    <a href="https://github.com/javokhirbek1999/book-sharing-system/issues">Report Bug</a>
     ·
-    <a href="https://github.com/javokhirbek1999/Covid19-Tracker/issues">Request Feature</a>
+    <a href="https://github.com/javokhirbek1999/book-sharing-system/issues">Request Feature</a>
   </p>
 </p>
 
